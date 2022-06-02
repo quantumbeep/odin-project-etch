@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+body {
+    display: grid;
+    grid-template-columns: repeat(80, 1fr);
+    width: 1400px;
+}
+
+div:hover {
+    background-color: blue;
+}
