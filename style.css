@@ -1,16 +1,15 @@
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
 
 body {
-  display: grid;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-content: center;
-  grid-template-columns: repeat(100, 1fr);
-  grid-gap: 0px;
 
-  width: 1000px;
-  margin: 100px auto;
 }
+#container {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  gap: 0px;
+  margin: 100px;
+}
+

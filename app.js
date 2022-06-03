@@ -1,32 +1,32 @@
 //make and style one box pixel
 let mouse_down = false;
+let numOfColumns = 0;
 
-const createBox = () => {
-  const body = document.querySelector('body');
-  const box = document.createElement('div');
-  box.textContent = '';
-  box.setAttribute(
+const handleClick = () => {
+  const gridContainer = document.querySelector('#container');
+  gridContainer.innerHTML = '';
+  numOfColumns = parseInt(prompt('how many boxes do you want across?'));
+  let gridSize = numOfColumns ** 2;
+  gridContainer.setAttribute(
     'style',
-    'border: 1px solid black; width: 10px; height: 10px  '
+    `grid-template-columns: repeat(${numOfColumns}, 1fr);`
   );
 
-  box.addEventListener('mouseover', function () {
-    box.setAttribute(
-      'style',
-      'width: 10px; height: 10px; background-color: blue;'
-    );
-  });
-
-  body.appendChild(box);
+  console.log(gridSize);
+  for (let i = 0; i < gridSize; i++) {
+    createBox();
+  }
 };
 
-//
-for (let i = 0; i < 10000; i++) {
-  createBox();
-}
+const createBox = () => {
+  const gridContainer = document.querySelector('#container');
 
-// Set up a “hover” effect so that the grid divs change color when your mouse passes over them, leaving a (pixelated) trail through your grid like a pen would.
-// Hint: “Hovering” is what happens when your mouse enters a div and ends when your mouse leaves it. You can set up event listeners for either of those events as a starting point.
-// There are multiple ways to change the color of the divs, including:
-// adding a new class to the div.
-// changing the div’s background color using JavaScript.
+  const box = document.createElement('div');
+  box.classList.add('box');
+  box.setAttribute('style', 'border: 1px solid black;');
+
+  box.addEventListener('mouseover', function () {
+    box.setAttribute('style', ' background-color: blue;');
+  });
+  gridContainer.appendChild(box);
+};
